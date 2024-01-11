@@ -1,19 +1,19 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:rank_assessment/features/credit_card_capture/data/data_sources/card_local_data_source.dart';
 import 'package:rank_assessment/features/credit_card_capture/data/models/card_model.dart';
+import 'package:rank_assessment/features/credit_card_capture/data/repositories/card_local_respository_impl.dart';
 
 import '../../helpers/test_helper.mocks.dart';
 
 void main() {
   late MockAppDatabase mockAppDatabase;
-  late CardLocalDataSourceImpl cardLocalDataSourceImpl;
+  late CardLocalRepositoryImpl cardLocalRepositoryImpl;
   late MockCardDao mockCardDao;
   setUp(() {
     mockCardDao = MockCardDao();
     mockAppDatabase = MockAppDatabase();
-    cardLocalDataSourceImpl =
-        CardLocalDataSourceImpl(appDatabase: mockAppDatabase);
+    cardLocalRepositoryImpl =
+        CardLocalRepositoryImpl(appDatabase: mockAppDatabase);
   });
 
   const testCardModel = CardModel(
@@ -50,7 +50,7 @@ void main() {
       when(mockCardDao.getSavedCards())
           .thenAnswer((_) async => testCardDetailList);
 
-      final result = await cardLocalDataSourceImpl.getSavedCards();
+      final result = await cardLocalRepositoryImpl.getSavedCards();
 
       expect(result, testCardDetailList);
     });
@@ -58,7 +58,7 @@ void main() {
     test('save a card to the database', () async {
       when(mockAppDatabase.cardDao).thenReturn(mockCardDao);
 
-      await cardLocalDataSourceImpl.insertCard(testCardModel);
+      await cardLocalRepositoryImpl.insertCard(testCardModel);
 
       verify(mockCardDao.insertCard(testCardModel)).called(1);
     });

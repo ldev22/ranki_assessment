@@ -8,23 +8,3 @@ abstract class CountryLocalDataSource {
 
   Future<void> updateCountry(CountryModel country);
 }
-
-class CountryLocalDataSourceImpl extends CountryLocalDataSource {
-  final AppDatabase appDatabase;
-  CountryLocalDataSourceImpl({required this.appDatabase});
-
-  @override
-  Future<List<CountryModel>> getCountries() {
-    return appDatabase.countryDao.getCountries();
-  }
-
-  @override
-  Future<void> insertCountry(CountryModel country) async {
-    await appDatabase.countryDao.insertCountry(country);
-  }
-
-  @override
-  Future<void> updateCountry(CountryModel country) async {
-    await appDatabase.countryDao.updateCountry(country);
-  }
-}
