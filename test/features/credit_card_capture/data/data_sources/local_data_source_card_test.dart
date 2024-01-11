@@ -44,7 +44,7 @@ void main() {
     )
   ];
 
-  group('Database test', () {
+  group('Database card tests', () {
     test('get credit cards from database', () async {
       when(mockAppDatabase.cardDao).thenReturn(mockCardDao);
       when(mockCardDao.getSavedCards())

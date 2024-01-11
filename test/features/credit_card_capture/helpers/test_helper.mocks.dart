@@ -13,6 +13,8 @@ import 'package:rank_assessment/features/credit_card_capture/data/data_sources/D
 import 'package:rank_assessment/features/credit_card_capture/data/data_sources/DAO/country_dao.dart'
     as _i3;
 import 'package:rank_assessment/features/credit_card_capture/data/models/card_model.dart'
+    as _i12;
+import 'package:rank_assessment/features/credit_card_capture/data/models/country_model.dart'
     as _i11;
 import 'package:rank_assessment/features/credit_card_capture/domain/entities/card.dart'
     as _i7;
@@ -222,6 +224,47 @@ class MockAppDatabase extends _i1.Mock implements _i10.AppDatabase {
       ) as _i4.Future<void>);
 }
 
+/// A class which mocks [CountryDao].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockCountryDao extends _i1.Mock implements _i3.CountryDao {
+  MockCountryDao() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<void> insertCountry(_i11.CountryModel? country) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #insertCountry,
+          [country],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
+  _i4.Future<void> updateCountry(_i11.CountryModel? country) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #updateCountry,
+          [country],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
+  _i4.Future<List<_i11.CountryModel>> getCountries() => (super.noSuchMethod(
+        Invocation.method(
+          #getCountries,
+          [],
+        ),
+        returnValue:
+            _i4.Future<List<_i11.CountryModel>>.value(<_i11.CountryModel>[]),
+      ) as _i4.Future<List<_i11.CountryModel>>);
+}
+
 /// A class which mocks [CardDao].
 ///
 /// See the documentation for Mockito's code generation for more information.
@@ -231,7 +274,7 @@ class MockCardDao extends _i1.Mock implements _i2.CardDao {
   }
 
   @override
-  _i4.Future<void> insertCard(_i11.CardModel? card) => (super.noSuchMethod(
+  _i4.Future<void> insertCard(_i12.CardModel? card) => (super.noSuchMethod(
         Invocation.method(
           #insertCard,
           [card],
@@ -241,11 +284,11 @@ class MockCardDao extends _i1.Mock implements _i2.CardDao {
       ) as _i4.Future<void>);
 
   @override
-  _i4.Future<List<_i11.CardModel>> getSavedCards() => (super.noSuchMethod(
+  _i4.Future<List<_i12.CardModel>> getSavedCards() => (super.noSuchMethod(
         Invocation.method(
           #getSavedCards,
           [],
         ),
-        returnValue: _i4.Future<List<_i11.CardModel>>.value(<_i11.CardModel>[]),
-      ) as _i4.Future<List<_i11.CardModel>>);
+        returnValue: _i4.Future<List<_i12.CardModel>>.value(<_i12.CardModel>[]),
+      ) as _i4.Future<List<_i12.CardModel>>);
 }
