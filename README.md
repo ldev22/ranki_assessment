@@ -11,9 +11,10 @@ This app is built using Clean Architecture using test driven development. Extern
 * get_it [used for dependancy injection, allowing setup of singletons to adhere to SOLID principles]
 * floor [used as sqlite abstraction, that will assist in storing data on the local device]
 * mockito [used for unit testing of components]
-* build_runner [used to generate mocks for the testable components of the app]
+* build_runner [used to generate mocks for the testable components of the app, as well as the low level sqlite code]
 * bloc_test [used when testing bloc components of the app]
 * rxdart [used to reactively validate form objects]
+* sqflite [used as local storage for the credits cards]
 ## Usage
 
 When the users opens the app, they will be presented with a home screen and the message 'No cards captured yet'. In
