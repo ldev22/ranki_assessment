@@ -15,8 +15,8 @@ void main() {
   });
 
   const testCountryList = [
-    CountryEntity(countryName: 'South Africa', isBanned: 1),
-    CountryEntity(countryName: 'Namibia', isBanned: 0)
+    CountryEntity(id: 1, country: 'South Africa', isBanned: 1),
+    CountryEntity(id: 2, country: 'Namibia', isBanned: 0)
   ];
 
   test('should get list of countries from the repository', () async {

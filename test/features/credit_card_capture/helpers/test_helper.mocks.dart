@@ -3,17 +3,26 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i3;
+import 'dart:async' as _i4;
 
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:rank_assessment/features/credit_card_capture/domain/entities/card.dart'
-    as _i4;
-import 'package:rank_assessment/features/credit_card_capture/domain/entities/country.dart'
-    as _i6;
-import 'package:rank_assessment/features/credit_card_capture/domain/repositories/card_repository.dart'
+import 'package:rank_assessment/features/credit_card_capture/data/data_sources/app_database.dart'
+    as _i10;
+import 'package:rank_assessment/features/credit_card_capture/data/data_sources/DAO/card_dao.dart'
     as _i2;
+import 'package:rank_assessment/features/credit_card_capture/data/data_sources/DAO/country_dao.dart'
+    as _i3;
+import 'package:rank_assessment/features/credit_card_capture/data/models/card_model.dart'
+    as _i11;
+import 'package:rank_assessment/features/credit_card_capture/domain/entities/card.dart'
+    as _i7;
+import 'package:rank_assessment/features/credit_card_capture/domain/entities/country.dart'
+    as _i9;
+import 'package:rank_assessment/features/credit_card_capture/domain/repositories/card_repository.dart'
+    as _i6;
 import 'package:rank_assessment/features/credit_card_capture/domain/repositories/country_repository.dart'
-    as _i5;
+    as _i8;
+import 'package:sqflite/sqflite.dart' as _i5;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -28,71 +37,215 @@ import 'package:rank_assessment/features/credit_card_capture/domain/repositories
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
+class _FakeCardDao_0 extends _i1.SmartFake implements _i2.CardDao {
+  _FakeCardDao_0(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeCountryDao_1 extends _i1.SmartFake implements _i3.CountryDao {
+  _FakeCountryDao_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeStreamController_2<T> extends _i1.SmartFake
+    implements _i4.StreamController<T> {
+  _FakeStreamController_2(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeDatabaseExecutor_3 extends _i1.SmartFake
+    implements _i5.DatabaseExecutor {
+  _FakeDatabaseExecutor_3(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [CardRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockCardRepository extends _i1.Mock implements _i2.CardRepository {
+class MockCardRepository extends _i1.Mock implements _i6.CardRepository {
   MockCardRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<List<_i4.CardEntity>> getSavedCards() => (super.noSuchMethod(
+  _i4.Future<List<_i7.CardEntity>> getSavedCards() => (super.noSuchMethod(
         Invocation.method(
           #getSavedCards,
           [],
         ),
-        returnValue: _i3.Future<List<_i4.CardEntity>>.value(<_i4.CardEntity>[]),
-      ) as _i3.Future<List<_i4.CardEntity>>);
+        returnValue: _i4.Future<List<_i7.CardEntity>>.value(<_i7.CardEntity>[]),
+      ) as _i4.Future<List<_i7.CardEntity>>);
 
   @override
-  _i3.Future<void> saveCard(_i4.CardEntity? cardEntity) => (super.noSuchMethod(
+  _i4.Future<void> saveCard(_i7.CardEntity? cardEntity) => (super.noSuchMethod(
         Invocation.method(
           #saveCard,
           [cardEntity],
         ),
-        returnValue: _i3.Future<void>.value(),
-        returnValueForMissingStub: _i3.Future<void>.value(),
-      ) as _i3.Future<void>);
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
 }
 
 /// A class which mocks [CountryRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockCountryRepository extends _i1.Mock implements _i5.CountryRepository {
+class MockCountryRepository extends _i1.Mock implements _i8.CountryRepository {
   MockCountryRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<List<_i6.CountryEntity>> getCountries() => (super.noSuchMethod(
+  _i4.Future<List<_i9.CountryEntity>> getCountries() => (super.noSuchMethod(
         Invocation.method(
           #getCountries,
           [],
         ),
         returnValue:
-            _i3.Future<List<_i6.CountryEntity>>.value(<_i6.CountryEntity>[]),
-      ) as _i3.Future<List<_i6.CountryEntity>>);
+            _i4.Future<List<_i9.CountryEntity>>.value(<_i9.CountryEntity>[]),
+      ) as _i4.Future<List<_i9.CountryEntity>>);
 
   @override
-  _i3.Future<void> saveCountry(_i6.CountryEntity? countryEntity) =>
+  _i4.Future<void> saveCountry(_i9.CountryEntity? countryEntity) =>
       (super.noSuchMethod(
         Invocation.method(
           #saveCountry,
           [countryEntity],
         ),
-        returnValue: _i3.Future<void>.value(),
-        returnValueForMissingStub: _i3.Future<void>.value(),
-      ) as _i3.Future<void>);
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
 
   @override
-  _i3.Future<void> updateCountry(_i6.CountryEntity? countryEntity) =>
+  _i4.Future<void> updateCountry(_i9.CountryEntity? countryEntity) =>
       (super.noSuchMethod(
         Invocation.method(
           #updateCountry,
           [countryEntity],
         ),
-        returnValue: _i3.Future<void>.value(),
-        returnValueForMissingStub: _i3.Future<void>.value(),
-      ) as _i3.Future<void>);
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+}
+
+/// A class which mocks [AppDatabase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockAppDatabase extends _i1.Mock implements _i10.AppDatabase {
+  MockAppDatabase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i2.CardDao get cardDao => (super.noSuchMethod(
+        Invocation.getter(#cardDao),
+        returnValue: _FakeCardDao_0(
+          this,
+          Invocation.getter(#cardDao),
+        ),
+      ) as _i2.CardDao);
+
+  @override
+  _i3.CountryDao get countryDao => (super.noSuchMethod(
+        Invocation.getter(#countryDao),
+        returnValue: _FakeCountryDao_1(
+          this,
+          Invocation.getter(#countryDao),
+        ),
+      ) as _i3.CountryDao);
+
+  @override
+  _i4.StreamController<String> get changeListener => (super.noSuchMethod(
+        Invocation.getter(#changeListener),
+        returnValue: _FakeStreamController_2<String>(
+          this,
+          Invocation.getter(#changeListener),
+        ),
+      ) as _i4.StreamController<String>);
+
+  @override
+  set changeListener(_i4.StreamController<String>? _changeListener) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #changeListener,
+          _changeListener,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i5.DatabaseExecutor get database => (super.noSuchMethod(
+        Invocation.getter(#database),
+        returnValue: _FakeDatabaseExecutor_3(
+          this,
+          Invocation.getter(#database),
+        ),
+      ) as _i5.DatabaseExecutor);
+
+  @override
+  set database(_i5.DatabaseExecutor? _database) => super.noSuchMethod(
+        Invocation.setter(
+          #database,
+          _database,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i4.Future<void> close() => (super.noSuchMethod(
+        Invocation.method(
+          #close,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+}
+
+/// A class which mocks [CardDao].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockCardDao extends _i1.Mock implements _i2.CardDao {
+  MockCardDao() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<void> insertCard(_i11.CardModel? card) => (super.noSuchMethod(
+        Invocation.method(
+          #insertCard,
+          [card],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
+  _i4.Future<List<_i11.CardModel>> getSavedCards() => (super.noSuchMethod(
+        Invocation.method(
+          #getSavedCards,
+          [],
+        ),
+        returnValue: _i4.Future<List<_i11.CardModel>>.value(<_i11.CardModel>[]),
+      ) as _i4.Future<List<_i11.CardModel>>);
 }

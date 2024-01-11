@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class CardEntity extends Equatable {
+  final int id;
   final String cardHolder;
   final int cardNumber;
   final int cvv;
@@ -8,6 +9,7 @@ class CardEntity extends Equatable {
   final String country;
 
   const CardEntity({
+    required this.id,
     required this.cardHolder,
     required this.cardNumber,
     required this.cvv,
@@ -17,6 +19,7 @@ class CardEntity extends Equatable {
 
   @override
   List<Object?> get props => [
+        id,
         cardHolder,
         cardNumber,
         cvv,

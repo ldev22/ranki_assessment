@@ -15,6 +15,7 @@ void main() {
 
   const testCardDetailList = [
     CardEntity(
+      id: 1,
       cardHolder: 'James Test',
       cardNumber: 4574487405351667,
       cvv: 1234,
@@ -22,11 +23,12 @@ void main() {
       country: 'South Africa',
     ),
     CardEntity(
+      id: 2,
       cardHolder: 'Peter Pan',
       cardNumber: 4874053516674574,
       cvv: 1234,
       cardType: 'Visa',
-      country: 'South Africa',
+      country: 'Namibia',
     )
   ];
 
