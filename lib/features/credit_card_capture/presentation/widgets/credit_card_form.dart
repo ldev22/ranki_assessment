@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:credit_card_scanner/credit_card_scanner.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,6 +26,15 @@ class _CreditCardFormState extends State<CreditCardForm> {
       TextEditingController();
   final TextEditingController _cardNumberController = TextEditingController();
   final TextEditingController _cvvController = TextEditingController();
+  CardDetails? cardDetails;
+  final CardScanOptions _scanOptions = const CardScanOptions(
+    scanCardHolderName: true,
+    // enableDebugLogs: true,
+    validCardsToScanBeforeFinishingScan: 5,
+    possibleCardHolderNamePositions: [
+      CardHolderNameScanPosition.aboveCardNumber,
+    ],
+  );
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -79,7 +89,17 @@ class _CreditCardFormState extends State<CreditCardForm> {
             height: 20,
           ),
           ElevatedButton.icon(
-            onPressed: null,
+            onPressed: () async {
+              final cardDetails =
+                  await CardScanner.scanCard(scanOptions: _scanOptions);
+              if (cardDetails == null) return;
+              setState(() {
+                _cardHolderDetailsController.text = cardDetails.cardHolderName;
+                _cardNumberController.text = cardDetails.cardNumber;
+                _cvvController.text = '123';
+                _selectedCountry = 'South Africa';
+              });
+            },
             icon: const Icon(Icons.camera),
             label: const Text('Scan Card'),
           ),
