@@ -108,12 +108,10 @@ class _$AppDatabase extends AppDatabase {
   }
 
   @override
-  // TODO: implement cardDao
   CardDao get cardDao =>
       _cardDAOInstance ??= _$CardDao(database, changeListener);
 
   @override
-  // TODO: implement countryDao
   CountryDao get countryDao =>
       _countryDAOInstance ??= _$CountryDao(database, changeListener);
 }
@@ -146,7 +144,7 @@ class _$CardDao extends CardDao {
   @override
   Future<List<CardModel>> getSavedCards() async {
     return _queryAdapter.queryList(
-        'SELECT * FROM cards JOIN countries ON cards.country = countries.country WHERE countries.is_banned = 0',
+        'SELECT * FROM cards JOIN countries ON cards.country = countries.country WHERE countries.isBanned = 0',
         mapper: (Map<String, Object?> row) => CardModel(
             id: row['id'] as int,
             cardHolder: row['cardHolder'] as String,
@@ -197,7 +195,7 @@ class _$CountryDao extends CountryDao {
 
   @override
   Future<List<CountryModel>> getCountries() async {
-    return _queryAdapter.queryList('SELECT * FROM countries',
+    return _queryAdapter.queryList('SELECT * FROM countries WHERE isBanned=0R',
         mapper: (Map<String, Object?> row) => CountryModel(
             id: row['id'] as int,
             country: row['country'] as String,

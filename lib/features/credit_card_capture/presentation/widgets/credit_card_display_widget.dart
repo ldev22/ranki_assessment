@@ -23,11 +23,11 @@ class CreditCardDisplayWidget extends StatelessWidget {
       expiryDate: expiryDate,
       cardHolderName: cardHolderName,
       cvvCode: cvvCode,
-      bankName: 'Your Bank Name',
+      bankName: 'Bank of the Universe',
       obscureCardNumber: true,
       obscureCardCvv: true,
       isHolderNameVisible: true,
-      cardBgColor: Colors.white, // You can customize the card background color
+      cardBgColor: Colors.blue, // You can customize the card background color
       isSwipeGestureEnabled: true,
       onCreditCardWidgetChange: (CreditCardBrand creditCardBrand) {},
       customCardTypeIcons: <CustomCardTypeIcon>[

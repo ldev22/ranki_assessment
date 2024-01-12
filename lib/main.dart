@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rank_assessment/features/credit_card_capture/domain/usecases/get_card.dart';
+import 'package:rank_assessment/features/credit_card_capture/domain/usecases/save_card.dart';
+import 'package:rank_assessment/features/credit_card_capture/presentation/bloc/card_bloc.dart';
 import 'package:rank_assessment/features/credit_card_capture/presentation/pages/credit_card_page.dart';
 import 'package:rank_assessment/injection_container.dart';
 import 'package:rank_assessment/routes/routes.dart';
@@ -16,9 +20,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: CreditCardPage(),
-      initialRoute: '/',
+      title: 'Credit Card Capturer',
       onGenerateRoute: AppRoutes.onGenerateRoutes,
+      home: BlocProvider(
+        create: (context) => CardBloc(
+          GetCardUseCase(locator()), // Replace with your actual implementation
+          SaveCardUseCase(locator()), // Replace with your actual implementation
+        ),
+        child: CreditCardPage(), // Replace with your actual home screen
+      ),
     );
   }
 }
