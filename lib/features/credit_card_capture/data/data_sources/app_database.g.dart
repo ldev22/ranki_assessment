@@ -195,7 +195,7 @@ class _$CountryDao extends CountryDao {
 
   @override
   Future<List<CountryModel>> getCountries() async {
-    return _queryAdapter.queryList('SELECT * FROM countries WHERE isBanned=0R',
+    return _queryAdapter.queryList('SELECT * FROM countries',
         mapper: (Map<String, Object?> row) => CountryModel(
             id: row['id'] as int,
             country: row['country'] as String,

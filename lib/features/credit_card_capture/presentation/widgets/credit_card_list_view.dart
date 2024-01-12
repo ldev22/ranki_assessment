@@ -13,11 +13,13 @@ class CreditCardListView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Credit Cards"),
+        title: const Text(""),
       ),
       body: BlocBuilder<CardBloc, CardState>(
         builder: (context, state) {
-          if (state is CardsDoneLoading) {
+          if (state is CardsEmpty) {
+            return const Center(child: Text("No Cards Saved."));
+          } else if (state is CardsDoneLoading) {
             // Pass the list of credit cards to CreditCardListWidget
             return CreditCardListWidget(creditCards: state.cards);
           } else if (state is CardsLoading) {

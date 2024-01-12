@@ -57,7 +57,7 @@ class _EditCountryFormState extends State<EditCountryForm> {
             _onSaveButtonPressed(context, widget.country!);
           },
           icon: const Icon(Icons.save, color: Colors.white),
-          label: const Text('Save Country'),
+          label: const Text('Update Country'),
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.blue,
             foregroundColor: Colors.white,
