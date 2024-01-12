@@ -38,7 +38,7 @@ void main() {
     test('save a country to the database', () async {
       when(mockAppDatabase.countryDao).thenReturn(mockCountryDao);
 
-      await countryLocalRepositoryImpl.insertCountry(testCountryModel);
+      await countryLocalRepositoryImpl.saveCountry(testCountryModel);
 
       verify(mockCountryDao.insertCountry(testCountryModel)).called(1);
     });

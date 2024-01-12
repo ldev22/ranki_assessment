@@ -9,6 +9,6 @@ abstract class CountryDao {
   @Update()
   Future<void> updateCountry(CountryModel country);
 
-  @Query('SELECT * FROM countries')
+  @Query('SELECT * FROM countries WHERE isBanned = 0')
   Future<List<CountryModel>> getCountries();
 }

@@ -7,6 +7,6 @@ abstract class CardDao {
   Future<void> insertCard(CardModel card);
 
   @Query(
-      'SELECT * FROM cards JOIN countries ON cards.country = countries.country WHERE countries.is_banned = 0')
+      'SELECT * FROM cards JOIN countries ON cards.country = countries.country WHERE countries.isBanned = 0')
   Future<List<CardModel>> getSavedCards();
 }

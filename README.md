@@ -4,7 +4,7 @@ A credit card capturing app for the Rank Assessment.
 ## Getting Started
 
 This app is built using Clean Architecture using test driven development. External libraries used by this app include
-* flutter_credit_card [used to preview the credit card in the page view of the list of credit cards]
+* flutter_credit_card [used to build widgets the credit cards in the page view of the list of credit cards]
 * credit_card_scanner [used to scan a credit card]
 * flutter_bloc [used to handle state management between business logic components and the presentation layer components]
 * equatable [used to simply comparing flutter and dart objects which in this instance would be models and entities from data and domain layers, it simplifies comparing the states in the bloc layer]
@@ -13,8 +13,8 @@ This app is built using Clean Architecture using test driven development. Extern
 * mockito [used for unit testing of components]
 * build_runner [used to generate mocks for the testable components of the app, as well as the low level sqlite code]
 * bloc_test [used when testing bloc components of the app]
-* rxdart [used to reactively validate form objects]
 * sqflite [used as local storage for the credits cards]
+* flutter_hooks [used to hook up widgets to blocs]
 ## Usage
 
 When the users opens the app, they will be presented with a home screen and the message 'No cards captured yet'. In

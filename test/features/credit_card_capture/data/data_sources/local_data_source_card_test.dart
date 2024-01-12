@@ -58,7 +58,7 @@ void main() {
     test('save a card to the database', () async {
       when(mockAppDatabase.cardDao).thenReturn(mockCardDao);
 
-      await cardLocalRepositoryImpl.insertCard(testCardModel);
+      await cardLocalRepositoryImpl.saveCard(testCardModel);
 
       verify(mockCardDao.insertCard(testCardModel)).called(1);
     });

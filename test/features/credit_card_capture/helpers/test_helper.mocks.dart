@@ -7,23 +7,33 @@ import 'dart:async' as _i4;
 
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:rank_assessment/features/credit_card_capture/data/data_sources/app_database.dart'
-    as _i10;
+    as _i13;
 import 'package:rank_assessment/features/credit_card_capture/data/data_sources/DAO/card_dao.dart'
     as _i2;
 import 'package:rank_assessment/features/credit_card_capture/data/data_sources/DAO/country_dao.dart'
     as _i3;
 import 'package:rank_assessment/features/credit_card_capture/data/models/card_model.dart'
-    as _i12;
+    as _i17;
 import 'package:rank_assessment/features/credit_card_capture/data/models/country_model.dart'
-    as _i11;
+    as _i16;
 import 'package:rank_assessment/features/credit_card_capture/domain/entities/card.dart'
-    as _i7;
+    as _i11;
 import 'package:rank_assessment/features/credit_card_capture/domain/entities/country.dart'
-    as _i9;
+    as _i7;
 import 'package:rank_assessment/features/credit_card_capture/domain/repositories/card_repository.dart'
-    as _i6;
+    as _i10;
 import 'package:rank_assessment/features/credit_card_capture/domain/repositories/country_repository.dart'
+    as _i12;
+import 'package:rank_assessment/features/credit_card_capture/domain/usecases/get_card.dart'
+    as _i14;
+import 'package:rank_assessment/features/credit_card_capture/domain/usecases/get_country.dart'
+    as _i6;
+import 'package:rank_assessment/features/credit_card_capture/domain/usecases/save_card.dart'
+    as _i15;
+import 'package:rank_assessment/features/credit_card_capture/domain/usecases/save_country.dart'
     as _i8;
+import 'package:rank_assessment/features/credit_card_capture/domain/usecases/update_country.dart'
+    as _i9;
 import 'package:sqflite/sqflite.dart' as _i5;
 
 // ignore_for_file: type=lint
@@ -81,25 +91,89 @@ class _FakeDatabaseExecutor_3 extends _i1.SmartFake
         );
 }
 
+/// A class which mocks [GetCountyUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGetCountyUseCase extends _i1.Mock implements _i6.GetCountyUseCase {
+  MockGetCountyUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<List<_i7.CountryEntity>> call({dynamic params}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+          {#params: params},
+        ),
+        returnValue:
+            _i4.Future<List<_i7.CountryEntity>>.value(<_i7.CountryEntity>[]),
+      ) as _i4.Future<List<_i7.CountryEntity>>);
+}
+
+/// A class which mocks [SaveCountryUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockSaveCountryUseCase extends _i1.Mock
+    implements _i8.SaveCountryUseCase {
+  MockSaveCountryUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<void> call({_i7.CountryEntity? params}) => (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+          {#params: params},
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+}
+
+/// A class which mocks [UpdateCountryUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockUpdateCountryUseCase extends _i1.Mock
+    implements _i9.UpdateCountryUseCase {
+  MockUpdateCountryUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<void> call({_i7.CountryEntity? params}) => (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+          {#params: params},
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+}
+
 /// A class which mocks [CardRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockCardRepository extends _i1.Mock implements _i6.CardRepository {
+class MockCardRepository extends _i1.Mock implements _i10.CardRepository {
   MockCardRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<List<_i7.CardEntity>> getSavedCards() => (super.noSuchMethod(
+  _i4.Future<List<_i11.CardEntity>> getSavedCards() => (super.noSuchMethod(
         Invocation.method(
           #getSavedCards,
           [],
         ),
-        returnValue: _i4.Future<List<_i7.CardEntity>>.value(<_i7.CardEntity>[]),
-      ) as _i4.Future<List<_i7.CardEntity>>);
+        returnValue:
+            _i4.Future<List<_i11.CardEntity>>.value(<_i11.CardEntity>[]),
+      ) as _i4.Future<List<_i11.CardEntity>>);
 
   @override
-  _i4.Future<void> saveCard(_i7.CardEntity? cardEntity) => (super.noSuchMethod(
+  _i4.Future<void> saveCard(_i11.CardEntity? cardEntity) => (super.noSuchMethod(
         Invocation.method(
           #saveCard,
           [cardEntity],
@@ -112,23 +186,23 @@ class MockCardRepository extends _i1.Mock implements _i6.CardRepository {
 /// A class which mocks [CountryRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockCountryRepository extends _i1.Mock implements _i8.CountryRepository {
+class MockCountryRepository extends _i1.Mock implements _i12.CountryRepository {
   MockCountryRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<List<_i9.CountryEntity>> getCountries() => (super.noSuchMethod(
+  _i4.Future<List<_i7.CountryEntity>> getCountries() => (super.noSuchMethod(
         Invocation.method(
           #getCountries,
           [],
         ),
         returnValue:
-            _i4.Future<List<_i9.CountryEntity>>.value(<_i9.CountryEntity>[]),
-      ) as _i4.Future<List<_i9.CountryEntity>>);
+            _i4.Future<List<_i7.CountryEntity>>.value(<_i7.CountryEntity>[]),
+      ) as _i4.Future<List<_i7.CountryEntity>>);
 
   @override
-  _i4.Future<void> saveCountry(_i9.CountryEntity? countryEntity) =>
+  _i4.Future<void> saveCountry(_i7.CountryEntity? countryEntity) =>
       (super.noSuchMethod(
         Invocation.method(
           #saveCountry,
@@ -139,7 +213,7 @@ class MockCountryRepository extends _i1.Mock implements _i8.CountryRepository {
       ) as _i4.Future<void>);
 
   @override
-  _i4.Future<void> updateCountry(_i9.CountryEntity? countryEntity) =>
+  _i4.Future<void> updateCountry(_i7.CountryEntity? countryEntity) =>
       (super.noSuchMethod(
         Invocation.method(
           #updateCountry,
@@ -153,7 +227,7 @@ class MockCountryRepository extends _i1.Mock implements _i8.CountryRepository {
 /// A class which mocks [AppDatabase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAppDatabase extends _i1.Mock implements _i10.AppDatabase {
+class MockAppDatabase extends _i1.Mock implements _i13.AppDatabase {
   MockAppDatabase() {
     _i1.throwOnMissingStub(this);
   }
@@ -224,6 +298,47 @@ class MockAppDatabase extends _i1.Mock implements _i10.AppDatabase {
       ) as _i4.Future<void>);
 }
 
+/// A class which mocks [GetCardUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGetCardUseCase extends _i1.Mock implements _i14.GetCardUseCase {
+  MockGetCardUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<List<_i11.CardEntity>> call({dynamic params}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+          {#params: params},
+        ),
+        returnValue:
+            _i4.Future<List<_i11.CardEntity>>.value(<_i11.CardEntity>[]),
+      ) as _i4.Future<List<_i11.CardEntity>>);
+}
+
+/// A class which mocks [SaveCardUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockSaveCardUseCase extends _i1.Mock implements _i15.SaveCardUseCase {
+  MockSaveCardUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<void> call({_i11.CardEntity? params}) => (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+          {#params: params},
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+}
+
 /// A class which mocks [CountryDao].
 ///
 /// See the documentation for Mockito's code generation for more information.
@@ -233,7 +348,7 @@ class MockCountryDao extends _i1.Mock implements _i3.CountryDao {
   }
 
   @override
-  _i4.Future<void> insertCountry(_i11.CountryModel? country) =>
+  _i4.Future<void> insertCountry(_i16.CountryModel? country) =>
       (super.noSuchMethod(
         Invocation.method(
           #insertCountry,
@@ -244,7 +359,7 @@ class MockCountryDao extends _i1.Mock implements _i3.CountryDao {
       ) as _i4.Future<void>);
 
   @override
-  _i4.Future<void> updateCountry(_i11.CountryModel? country) =>
+  _i4.Future<void> updateCountry(_i16.CountryModel? country) =>
       (super.noSuchMethod(
         Invocation.method(
           #updateCountry,
@@ -255,14 +370,14 @@ class MockCountryDao extends _i1.Mock implements _i3.CountryDao {
       ) as _i4.Future<void>);
 
   @override
-  _i4.Future<List<_i11.CountryModel>> getCountries() => (super.noSuchMethod(
+  _i4.Future<List<_i16.CountryModel>> getCountries() => (super.noSuchMethod(
         Invocation.method(
           #getCountries,
           [],
         ),
         returnValue:
-            _i4.Future<List<_i11.CountryModel>>.value(<_i11.CountryModel>[]),
-      ) as _i4.Future<List<_i11.CountryModel>>);
+            _i4.Future<List<_i16.CountryModel>>.value(<_i16.CountryModel>[]),
+      ) as _i4.Future<List<_i16.CountryModel>>);
 }
 
 /// A class which mocks [CardDao].
@@ -274,7 +389,7 @@ class MockCardDao extends _i1.Mock implements _i2.CardDao {
   }
 
   @override
-  _i4.Future<void> insertCard(_i12.CardModel? card) => (super.noSuchMethod(
+  _i4.Future<void> insertCard(_i17.CardModel? card) => (super.noSuchMethod(
         Invocation.method(
           #insertCard,
           [card],
@@ -284,11 +399,11 @@ class MockCardDao extends _i1.Mock implements _i2.CardDao {
       ) as _i4.Future<void>);
 
   @override
-  _i4.Future<List<_i12.CardModel>> getSavedCards() => (super.noSuchMethod(
+  _i4.Future<List<_i17.CardModel>> getSavedCards() => (super.noSuchMethod(
         Invocation.method(
           #getSavedCards,
           [],
         ),
-        returnValue: _i4.Future<List<_i12.CardModel>>.value(<_i12.CardModel>[]),
-      ) as _i4.Future<List<_i12.CardModel>>);
+        returnValue: _i4.Future<List<_i17.CardModel>>.value(<_i17.CardModel>[]),
+      ) as _i4.Future<List<_i17.CardModel>>);
 }

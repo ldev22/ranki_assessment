@@ -4,7 +4,7 @@ import 'package:rank_assessment/features/credit_card_capture/domain/entities/cou
 @Entity(tableName: 'countries', primaryKeys: ['id'])
 class CountryModel extends CountryEntity {
   const CountryModel(
-      {required int id, required String country, required int isBanned})
+      {required int? id, required String? country, required int? isBanned})
       : super(id: id, country: country, isBanned: isBanned);
 
   factory CountryModel.fromEntity(CountryEntity country) {
