@@ -87,7 +87,7 @@ class _$AppDatabase extends AppDatabase {
       },
       onCreate: (database, version) async {
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `cards` (`id` INTEGER NOT NULL, `cardHolder` TEXT NOT NULL, `cardNumber` INTEGER NOT NULL, `cvv` INTEGER NOT NULL, `cardType` TEXT NOT NULL, `country` TEXT NOT NULL, PRIMARY KEY (`id`))');
+            'CREATE TABLE IF NOT EXISTS `cards` (`id` INTEGER NOT NULL, `cardHolder` TEXT NOT NULL, `cardNumber` INTEGER NOT NULL, `cvv` INTEGER NOT NULL, `cardType` TEXT NOT NULL, `country` TEXT NOT NULL, PRIMARY KEY (`id`, `cardNumber`))');
         await database.execute(
             'CREATE TABLE IF NOT EXISTS `countries` (`id` INTEGER NOT NULL, `country` TEXT NOT NULL, `isBanned` INTEGER NOT NULL, PRIMARY KEY (`id`))');
 
@@ -95,16 +95,6 @@ class _$AppDatabase extends AppDatabase {
       },
     );
     return sqfliteDatabaseFactory.openDatabase(path, options: databaseOptions);
-  }
-
-  @override
-  CardDao get cardDAO {
-    return _cardDAOInstance ??= _$CardDao(database, changeListener);
-  }
-
-  @override
-  CountryDao get countryDAO {
-    return _countryDAOInstance ??= _$CountryDao(database, changeListener);
   }
 
   @override
@@ -150,8 +140,8 @@ class _$CardDao extends CardDao {
             cardHolder: row['cardHolder'] as String,
             cardNumber: row['cardNumber'] as int,
             cardType: row['cardType'] as String,
-            cvv: row['cvv'] as int,
-            country: row['country'] as String));
+            country: row['country'] as String,
+            cvv: row['cvv'] as int));
   }
 
   @override
