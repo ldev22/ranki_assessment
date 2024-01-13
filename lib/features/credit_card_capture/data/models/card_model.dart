@@ -1,7 +1,7 @@
 import 'package:rank_assessment/features/credit_card_capture/domain/entities/card.dart';
 import 'package:floor/floor.dart';
 
-@Entity(tableName: 'cards', primaryKeys: ['id'])
+@Entity(tableName: 'cards', primaryKeys: ['id', 'cardNumber'])
 class CardModel extends CardEntity {
   const CardModel({
     required int id,

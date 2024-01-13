@@ -24,8 +24,8 @@ class CreditCardDisplayWidget extends StatelessWidget {
       cardHolderName: cardHolderName,
       cvvCode: cvvCode,
       bankName: 'Bank of the Universe',
-      obscureCardNumber: true,
-      obscureCardCvv: true,
+      obscureCardNumber: false,
+      obscureCardCvv: false,
       isHolderNameVisible: true,
       cardBgColor: Colors.blue, // You can customize the card background color
       isSwipeGestureEnabled: true,
